@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="10dp">
+
+	<ImageView
+		android:background="@drawable/maximoff_picker_alpha_repeat"
+		android:layout_width="match_parent"
+		android:layout_height="64dp"
+		android:id="@+id/pickerImageView1"/>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:layout_width="24dp"
+			android:layout_height="wrap_content"
+			android:text="A"
+			android:textStyle="bold"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:gravity="center"/>
+
+		<SeekBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"
+			android:tag="alpha"
+			android:min="0"
+			android:max="255"
+			android:id="@+id/pickerSeekBar1"/>
+
+		<TextView
+			android:layout_width="36dp"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/pickerTextView1"
+			android:gravity="center"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:layout_width="24dp"
+			android:layout_height="wrap_content"
+			android:text="R"
+			android:textStyle="bold"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:gravity="center"
+			android:textColor="@color/maximoff_picker_red"/>
+
+		<SeekBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"
+			android:tag="red"
+			android:min="0"
+			android:max="255"
+			android:id="@+id/pickerSeekBar2"/>
+
+		<TextView
+			android:layout_width="36dp"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/pickerTextView2"
+			android:gravity="center"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:layout_width="24dp"
+			android:layout_height="wrap_content"
+			android:text="G"
+			android:textStyle="bold"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:gravity="center"
+			android:textColor="@color/maximoff_picker_green"/>
+
+		<SeekBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"
+			android:tag="green"
+			android:min="0"
+			android:max="255"
+			android:id="@+id/pickerSeekBar3"/>
+
+		<TextView
+			android:layout_width="36dp"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/pickerTextView3"
+			android:gravity="center"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:gravity="center">
+
+		<TextView
+			android:layout_width="24dp"
+			android:layout_height="wrap_content"
+			android:text="B"
+			android:textStyle="bold"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:gravity="center"
+			android:textColor="@color/maximoff_picker_blue"/>
+
+		<SeekBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1.0"
+			android:tag="blue"
+			android:min="0"
+			android:max="255"
+			android:id="@+id/pickerSeekBar4"/>
+
+		<TextView
+			android:layout_width="36dp"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:id="@+id/pickerTextView4"
+			android:gravity="center"/>
+
+	</LinearLayout>
+
+	<EditText
+		android:layout_width="match_parent"
+		android:ems="10"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:singleLine="true"
+		android:id="@+id/pickerEditText1"/>
+
+</LinearLayout>
+

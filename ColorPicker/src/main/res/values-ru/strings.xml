@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="maximoff_picker_title">Выберите цвет</string>
+	<string name="maximoff_picker_select">Выбрать</string>
+	<string name="maximoff_picker_cancel">Отмена</string>
+</resources>
