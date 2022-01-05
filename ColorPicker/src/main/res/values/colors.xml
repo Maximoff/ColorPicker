@@ -3,4 +3,5 @@
 	<color name="maximoff_picker_red">#FFFF0000</color>
 	<color name="maximoff_picker_green">#FF00FF00</color>
 	<color name="maximoff_picker_blue">#FF0000FF</color>
+	<color name="maximoff_picker_grey">#FF757575</color>
 </resources>

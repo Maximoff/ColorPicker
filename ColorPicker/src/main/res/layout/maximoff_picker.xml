@@ -25,12 +25,15 @@
 			android:text="A"
 			android:textStyle="bold"
 			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:gravity="center"/>
+			android:gravity="center"
+			android:textColor="@color/maximoff_picker_grey"/>
 
 		<SeekBar
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1.0"
+			android:progressTint="@color/maximoff_picker_grey"
+            android:thumbTint="@color/maximoff_picker_grey"
 			android:tag="alpha"
 			android:min="0"
 			android:max="255"
@@ -66,6 +69,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1.0"
+			android:progressTint="@color/maximoff_picker_red"
+            android:thumbTint="@color/maximoff_picker_red"
 			android:tag="red"
 			android:min="0"
 			android:max="255"
@@ -101,6 +106,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1.0"
+			android:progressTint="@color/maximoff_picker_green"
+            android:thumbTint="@color/maximoff_picker_green"
 			android:tag="green"
 			android:min="0"
 			android:max="255"
@@ -136,6 +143,8 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1.0"
+			android:progressTint="@color/maximoff_picker_blue"
+            android:thumbTint="@color/maximoff_picker_blue"
 			android:tag="blue"
 			android:min="0"
 			android:max="255"
