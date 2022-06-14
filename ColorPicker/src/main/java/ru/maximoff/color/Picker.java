@@ -120,6 +120,9 @@ public class Picker {
 
 				@Override
 				public void afterTextChanged(Editable p1) {
+					if (!hexValue.isFocused()) {
+						return;
+					}
 					try {
 						selectedColor = Color.parseColor(p1.toString());
 						smaliColor = hexToSmali(String.format("#%08x", (0xFFFFFFFF & selectedColor)));
@@ -147,6 +150,9 @@ public class Picker {
 
 				@Override
 				public void afterTextChanged(Editable p1) {
+					if (!smaliValue.isFocused()) {
+						return;
+					}
 					try {
 						smaliColor = p1.toString();
 						String hex = smaliToHex(smaliColor);
