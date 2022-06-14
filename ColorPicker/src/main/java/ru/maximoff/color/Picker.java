@@ -193,6 +193,7 @@ public class Picker {
 						blueView.setText(String.valueOf(progress));
 						break;
 				}
+				smaliColor = hexToSmali(String.format("#%08x", (0xFFFFFFFF & selectedColor)));
 				preview.setImageDrawable(new ColorDrawable(selectedColor));
 				if (touched) {
 					String hexDefault = String.format("#%08x", (0xFFFFFFFF & selectedColor));
@@ -233,6 +234,7 @@ public class Picker {
 					if (selectListener != null) {
 						selectListener.select(String.format("#%08x", (0xFFFFFFFF & selectedColor)));
 						selectListener.select(selectedColor);
+						selectListener.selectSmali(smaliColor);
 					}
 					p1.dismiss();
 				}
