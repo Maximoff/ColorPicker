@@ -167,6 +167,15 @@
 		android:layout_marginTop="10dp"
 		android:singleLine="true"
 		android:id="@+id/pickerEditText1"/>
+	
+	<EditText
+		android:layout_width="match_parent"
+		android:ems="10"
+		android:visibility="gone"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:singleLine="true"
+		android:id="@+id/pickerEditText2"/>
 
 </LinearLayout>
 

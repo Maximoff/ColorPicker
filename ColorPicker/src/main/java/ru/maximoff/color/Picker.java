@@ -18,12 +18,16 @@ public class Picker {
 	private OnColorSelect selectListener;
 	private String title;
 	private int selectedColor;
+	private String smaliColor;
+	private boolean showSmali;
 	private Context context;
 
 	public Picker(Context ctx) {
 		this.context = ctx;
 		this.title = ctx.getString(R.string.maximoff_picker_title);
 		this.selectedColor = Color.BLACK;
+		this.smaliColor = hexToSmali(String.format("#%08x", (0xFFFFFFFF & selectedColor)));
+		this.showSmali = false;
 	}
 
 	public Picker setColor(String hexColor) {
@@ -47,9 +51,43 @@ public class Picker {
 		this.title = str;
 		return this;
 	}
+	
+	public Picker showSmali() {
+		this.showSmali = true;
+		return this;
+	}
+	
+	public String smaliToHex(String smali) {
+		String pm = "";
+		if (smali.startsWith("-")) {
+			smali = smali.substring(1);
+			pm = "-";
+		}
+		if (smali.startsWith("0x")) {
+			smali = smali.substring(2);
+		}
+		int color = Integer.parseInt(pm + smali, 16);
+		return String.format("#%08x", (0xFFFFFFFF & color));
+    }
+
+    public String hexToSmali(String hex) {
+		if (!hex.startsWith("#")) {
+			hex = "#" + hex;
+		}
+		int color = Color.parseColor(hex);
+		int alpha = Color.alpha(color);
+		String smali;
+		if (alpha >= 128) {
+			smali = "-0x" + Integer.toHexString(color * -1);
+		} else {
+			smali = "0x" + Integer.toHexString(color);
+		}
+		return smali;
+    }
 
 	public void show() {
 		String hexDefault = String.format("#%08x", (0xFFFFFFFF & selectedColor));
+		String smaliDefault = hexToSmali(hexDefault);
 		View view = LayoutInflater.from(context).inflate(R.layout.maximoff_picker, null);
 		final ImageView preview = view.findViewById(R.id.pickerImageView1);
 		preview.setImageDrawable(new ColorDrawable(selectedColor));
@@ -65,6 +103,8 @@ public class Picker {
 		final TextView blueView = view.findViewById(R.id.pickerTextView4);
 
 		final EditText hexValue = view.findViewById(R.id.pickerEditText1);
+		final EditText smaliValue = view.findViewById(R.id.pickerEditText2);
+		smaliValue.setVisibility(showSmali? View.VISIBLE : View.GONE);
 		hexValue.setText(hexDefault);
 		hexValue.setHint(hexDefault);
 		hexValue.addTextChangedListener(new TextWatcher() {
@@ -82,6 +122,36 @@ public class Picker {
 				public void afterTextChanged(Editable p1) {
 					try {
 						selectedColor = Color.parseColor(p1.toString());
+						smaliColor = hexToSmali(String.format("#%08x", (0xFFFFFFFF & selectedColor)));
+						smaliValue.setText(smaliColor);
+						alphaBar.setProgress(Color.alpha(selectedColor));
+						redBar.setProgress(Color.red(selectedColor));
+						greenBar.setProgress(Color.green(selectedColor));
+						blueBar.setProgress(Color.blue(selectedColor));
+					} catch (Exception e) {}
+				}
+			});
+			
+		smaliValue.setText(smaliDefault);
+		smaliValue.setHint(smaliDefault);
+		smaliValue.addTextChangedListener(new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence p1, int p2, int p3, int p4) {
+
+				}
+
+				@Override
+				public void onTextChanged(CharSequence p1, int p2, int p3, int p4) {
+
+				}
+
+				@Override
+				public void afterTextChanged(Editable p1) {
+					try {
+						smaliColor = p1.toString();
+						String hex = smaliToHex(smaliColor);
+						selectedColor = Color.parseColor(hex);
+						hexValue.setText(hex);
 						alphaBar.setProgress(Color.alpha(selectedColor));
 						redBar.setProgress(Color.red(selectedColor));
 						greenBar.setProgress(Color.green(selectedColor));
@@ -120,8 +190,11 @@ public class Picker {
 				preview.setImageDrawable(new ColorDrawable(selectedColor));
 				if (touched) {
 					String hexDefault = String.format("#%08x", (0xFFFFFFFF & selectedColor));
+					String smaliDefault = hexToSmali(hexDefault);
 					hexValue.setText(hexDefault);
 					hexValue.setHint(hexDefault);
+					smaliValue.setText(smaliDefault);
+					smaliValue.setHint(smaliDefault);
 				}
 			}
 
@@ -180,6 +253,7 @@ public class Picker {
 	public interface OnColorSelect {
 		public void select(String hexColor);
 		public void select(int intColor);
+		public void selectSmali(String smaliColor);
 		public void cancel();
 	}
 }
