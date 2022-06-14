@@ -11,6 +11,7 @@ new Picker(context) // создание экземпляра диалога
 	.setTitle("Заголовок") // свой заголовок диалога
 	.setColor(Color.RED) // изначально выбранный цвет
 	/* .setColor("#FF0000") // или цвет в hex формате */
+	.showSmali() // отобразить поле ввода цвета в формате smali
 	.setOnColorSelect(new Picker.OnColorSelect() { // обработчик выбора
 
 		@Override
@@ -21,6 +22,11 @@ new Picker(context) // создание экземпляра диалога
 		@Override
 		public void select(int intColor) {
 			// выбран цвет
+		}
+		
+		@Override
+		public void selectSmali(String smaliColor) {
+			// выбран цвет в формате smali
 		}
 
 		@Override
